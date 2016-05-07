@@ -5,13 +5,14 @@ class TodoList
       @item_list = []      
     end
     
-    def add_item(item)
-      # TODO: create item class object from parameter.
-      @item_list.push(item)
+    def add_item(description)
+      temp_item = Item.new description
+      @item_list.push(temp_item)
+      
     end
     
-    def remove_item(item)
-      @item_list.delete item
+    def add_item_obj(item)
+      @item_list.push(item)
     end
     
     def remove_item_at(index)
@@ -27,7 +28,7 @@ class TodoList
       end
     end
     
-    def update_item_at(index, val)
+    def update_item_status_at(index, val)
       @item_list[(index - 1)].update_satus(val)
     end
     
@@ -52,10 +53,14 @@ class Item
   end
   
   def print_details
-    puts "Item(#{@id}): #{@description} completion status is #{@completion_status}"
+    puts "Item(#{@id}): #{@description}.\t Completion status is #{@completion_status}"
   end
   
   def equals(item)
     @id = item.id
+  end
+  
+  def completed?
+    return @completion_status
   end
 end
