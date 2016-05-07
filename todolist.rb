@@ -1,5 +1,7 @@
 class TodoList
     
+    attr_reader :title
+    
     def initialize(title)
       @title = title
       @item_list = []      
@@ -38,7 +40,7 @@ class Item
   
   @@item_count = 0
 
-  attr_reader :id
+  attr_reader :id, :description, :completed_status
   
   def initialize(description)
     @@item_count += 1
