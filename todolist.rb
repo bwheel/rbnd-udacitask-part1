@@ -1,9 +1,10 @@
 class TodoList
     
-    attr_reader :title
+    attr_reader :title, :owner
     
-    def initialize(title)
+    def initialize(title, owner)
       @title = title
+      @owner = owner
       @item_list = []      
     end
     
@@ -23,7 +24,10 @@ class TodoList
     
     def print_all_items
       
-      puts "TODO list: #{@title}"
+      puts "--------------------"
+      puts @title
+      puts "Owner: #{@owner}"
+      puts "--------------------"
       
       @item_list.each do |item|
         item.print_details
@@ -34,13 +38,47 @@ class TodoList
       @item_list[(index - 1)].update_satus(val)
     end
     
+    def save_to(filename)
+
+      file = open(filename ,'w')
+      file.write("#{@title},#{@owner}\r\n")
+      @item_list.each { |item| item.save_to(file) }
+      file.close()
+      
+      
+    end
+    
+    def load_from(filename)
+
+      File.foreach(filename).with_index do |line, line_num|
+
+        if line_num == 0
+          parameters = line.split(',')
+          @title = parameters[0]
+          @owner = parameters[1]
+        else
+          parameters = line.split(',')
+          
+          line_item = Item.new parameters[1] 
+          line_item.id = parameters[0]
+          line_item.completion_status = parameters[2]
+          @item_list.push(line_item)
+          
+        end
+      end
+    end
+    
+    def change_owner_to(new_owner)
+      @owner = new_owner
+    end
+      
 end
 
 class Item
   
   @@item_count = 0
 
-  attr_reader :id, :description, :completed_status
+  attr_accessor :id, :description, :completion_status
   
   def initialize(description)
     @@item_count += 1
@@ -55,7 +93,7 @@ class Item
   end
   
   def print_details
-    puts "Item(#{@id}): #{@description}.\t Completion status is #{@completion_status}"
+    puts "#{@id} - #{@description}\t Completed: #{@completion_status}"
   end
   
   def equals(item)
@@ -65,4 +103,12 @@ class Item
   def completed?
     return @completion_status
   end
+  
+  def save_to(file)
+    
+    status = @completion_status == true ? "true" : "false"
+  
+    file.write("#{@id},#{@description},#{status}\r\n")
+  end
+  
 end
