@@ -1,0 +1,23 @@
+commit b965be23140c27193bde8a7afd727e77b048ce7e
+Author: Byron <bwheel1990@gmail.com>
+Date:   Fri May 20 00:04:00 2016 +0000
+
+    Implement the three new features documented in the new_features.txt file
+
+commit 06053e595cb1ea26502e8e8f8e233d3a29326642
+Author: Byron <bwheel1990@gmail.com>
+Date:   Sat May 7 20:40:41 2016 +0000
+
+    set the read/write status of the attributes for items
+
+commit 557f5b37cb08d7a1bd6f507e9e4a12fad2eba213
+Author: Byron <bwheel1990@gmail.com>
+Date:   Sat May 7 20:35:31 2016 +0000
+
+    refactor the remote function
+
+commit e7ae4db8427442339f085f0b99e92c798f39fe70
+Author: Byron <bwheel1990@gmail.com>
+Date:   Sat May 7 20:28:34 2016 +0000
+
+    Initial file commit

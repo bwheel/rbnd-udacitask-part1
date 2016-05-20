@@ -1,3 +1,3 @@
-Feature #1: Save to file
-Feature #2: Load from file
-Feature #3: List's owner
+Feature #1: Save to file, functions to save the list and the item to the file.
+Feature #2: Load from file, function to populate the list object from a file.
+Feature #3: List's owner, function to change the todo list's owner and display, save, and load it.
