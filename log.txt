@@ -1,3 +1,9 @@
+commit 6ae0368d3899dffbb871157a9860bfa264db1e7f
+Author: Byron <bwheel1990@gmail.com>
+Date:   Fri May 20 00:06:28 2016 +0000
+
+    updated documentation in new_features.txt
+
 commit b965be23140c27193bde8a7afd727e77b048ce7e
 Author: Byron <bwheel1990@gmail.com>
 Date:   Fri May 20 00:04:00 2016 +0000

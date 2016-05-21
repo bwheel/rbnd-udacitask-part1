@@ -37,7 +37,7 @@ todo_list.print_all_items
 puts
 
 # Update the title of the list
-todo_list.update_item_status_at 2, true
+todo_list.set_title_to "My Updated Title."
 
 # Print the list
 todo_list.print_all_items

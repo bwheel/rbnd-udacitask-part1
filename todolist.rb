@@ -68,6 +68,10 @@ class TodoList
       end
     end
     
+    def set_title_to(new_title)
+      @title = new_title
+    end
+    
     def change_owner_to(new_owner)
       @owner = new_owner
     end
@@ -101,7 +105,7 @@ class Item
   end
   
   def completed?
-    return @completion_status
+    @completion_status
   end
   
   def save_to(file)
